@@ -1,7 +1,8 @@
 package com.example.demo.controllers;
 
-import converters.StudentConverter;
+import com.example.demo.converters.StudentConverter;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ public class StudentRestController {
 
 
     private com.example.demo.StudentServiceImpl studentServiceImpl;
+    @Autowired
     private StudentConverter studentConverter;
 
     @RequestMapping("/api/v1/students")
@@ -28,6 +30,7 @@ public class StudentRestController {
 
     @PostMapping("/saveUser")
     public ResponseEntity<?> saveUser(@RequestBody StudentDTO studentDTO){
+        System.out.println(studentDTO);
         studentServiceImpl.saveStudent(studentConverter.convertStudentDTO(studentDTO));
         return new ResponseEntity<>("Student added successfully", HttpStatus.OK);
     }

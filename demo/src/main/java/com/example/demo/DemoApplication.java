@@ -27,10 +27,6 @@ public class DemoApplication {
 					"Itay",
 					"Goldman",
 					"itaym178@gmail.com",
-					Gender.MALE,
-					address,
-					List.of("Math", "English"),
-					BigDecimal.TEN,
 					LocalDateTime.now()
 			);
 

@@ -18,32 +18,28 @@ public class Student {
     private String firstName;
     private String lastName;
     private String email;
-    private Gender gender;
-    private Address address;
-    private List<String> courses;
-    private BigDecimal totalSpentInBooks;
     private LocalDateTime created;
 
 
     public Student(){
 
     }
-    public Student(String firstName,
-                   String lastName,
-                   String email,
-                   Gender gender,
-                   Address address,
-                   List<String> courses,
-                   BigDecimal totalSpentInBooks,
-                   LocalDateTime created) {
 
+    public Student(String firstName, String lastName, String email, LocalDateTime created) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.gender = gender;
-        this.address = address;
-        this.courses = courses;
-        this.totalSpentInBooks = totalSpentInBooks;
         this.created = created;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", created=" + created +
+                '}';
     }
 }
