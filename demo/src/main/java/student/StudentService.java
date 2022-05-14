@@ -6,6 +6,8 @@ public interface StudentService {
 
     List<Student> findAll();
 
+    void saveStudent(Student student);
+
 
 
 }
