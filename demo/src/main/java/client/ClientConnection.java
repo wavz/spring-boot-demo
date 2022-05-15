@@ -1,5 +1,6 @@
 package client;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.json.JSONObject;
 
@@ -18,6 +19,8 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
+import student.Student;
+import student.StudentDTO;
 
 public class ClientConnection {
 
@@ -58,11 +61,14 @@ public class ClientConnection {
         request.setEntity(entity);
 
         HttpResponse response = null;
+        ObjectMapper objectMapper = new ObjectMapper();
         try {
             response = httpClient.execute(request);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(Arrays.toString(response.getEntity().getContent().readAllBytes()));
+        StudentDTO studentDTO = objectMapper.readValue(response.getEntity().getContent().readAllBytes(), StudentDTO.class);
+        System.out.println(studentDTO);
+
     }
 }

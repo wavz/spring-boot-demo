@@ -1,16 +1,14 @@
 package com.example.demo;
 
+import com.example.demo.interfaces.StudentRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import student.Address;
-import student.Gender;
 import student.Student;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @SpringBootApplication
 public class DemoApplication {

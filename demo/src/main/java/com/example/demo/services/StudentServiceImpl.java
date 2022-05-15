@@ -1,10 +1,10 @@
-package com.example.demo;
+package com.example.demo.services;
 
-import com.example.demo.StudentRepository;
+import com.example.demo.interfaces.StudentRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import student.Student;
-import student.StudentService;
+import com.example.demo.interfaces.StudentService;
 
 import java.util.List;
 
@@ -18,6 +18,11 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Student> findAll() {
         return studentRepository.findAll();
+    }
+
+    @Override
+    public Student findStudentByEmail(String email) {
+        return studentRepository.findByEmail(email);
     }
 
     @Override
